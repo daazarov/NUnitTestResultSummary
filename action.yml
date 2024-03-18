@@ -1,0 +1,49 @@
+name: 'NUnit Tests Result Summary'
+author: 'Daazarov <daazarov94@gmail.com>'
+description: 'A GitHub Action that reads NUnit XML result file and prepare markdown summary.'
+inputs:
+  filename:
+    description: 'File path to analyse.'
+    required: true
+  badge:
+    description: 'Include a number of tests taken badge in the output using shields.io - true (default) or false.'
+    required: false
+    default: 'true'
+  format:
+    description: 'Output Format - (only markdown available right now.)'
+    required: false
+    default: 'markdown'
+  output:
+    description: 'Output Type - (only markdown file *.md available right now.)'
+    required: false
+    default: 'file'
+  skipped:
+    description: 'Whether skipped tests should be included in the report - true (default) or false.'
+    required: false
+    default: 'true'
+  inconclusive:
+    description: 'Whether inconclusive tests should be included in the report - true (default) or false.'
+    required: false
+    default: 'true'
+  passed:
+    description: 'Whether passed tests should be included in the report - true or false (default).'
+    required: false
+    default: 'false'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '--input'
+    - ${{ inputs.filename }}
+    - '--badge'
+    - ${{ inputs.badge }}
+    - '--format'
+    - ${{ inputs.format }}
+    - '--output'
+    - ${{ inputs.output }}
+    - '--skipped'
+    - ${{ inputs.skipped }}
+    - '--inconclusive'
+    - ${{ inputs.inconclusive }}
+    - '--passed'
+    - ${{ inputs.passed }}
