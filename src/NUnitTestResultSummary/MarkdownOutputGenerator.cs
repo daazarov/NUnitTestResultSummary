@@ -22,11 +22,11 @@ namespace NUnitTestResultSummary
                                .AppendLine();
             }
 
-            AddSection((output) => output.MarkdownCollapsedSection("Failed Tests", MarkdownTable(() => summary.Failed)));
-            AddSection((output) => output.MarkdownCollapsedSection("Warning Tests", MarkdownTable(() => summary.Warning)));
-            AddSection((output) => output.MarkdownCollapsedSection("Skipped Tests", MarkdownTable(() => summary.Skipped)), () => options.ShowSkipped);
-            AddSection((output) => output.MarkdownCollapsedSection("Inconclusive Tests", MarkdownTable(() => summary.Inconclusive)), () => options.ShowInconclusive);
-            AddSection((output) => output.MarkdownCollapsedSection("Passed Tests", MarkdownTable(() => summary.Passed)), () => options.ShowPassed);
+            AddSection((output) => output.MarkdownCollapsedSection("Failed Tests", MarkdownTable(() => summary.Failed)), () => summary.FailedTestCount > 0);
+            AddSection((output) => output.MarkdownCollapsedSection("Warning Tests", MarkdownTable(() => summary.Warning)), () => summary.WarningTestCount > 0);
+            AddSection((output) => output.MarkdownCollapsedSection("Skipped Tests", MarkdownTable(() => summary.Skipped)), () => options.ShowSkipped && summary.SkippedTestCount > 0);
+            AddSection((output) => output.MarkdownCollapsedSection("Inconclusive Tests", MarkdownTable(() => summary.Inconclusive)), () => options.ShowInconclusive && summary.InconclusiveTestCount > 0);
+            AddSection((output) => output.MarkdownCollapsedSection("Passed Tests", MarkdownTable(() => summary.Passed)), () => options.ShowPassed && summary.PassedTestCount > 0);
 
             return _markdownOutput.ToString();
         }
@@ -45,8 +45,8 @@ namespace NUnitTestResultSummary
 
         private string MarkdownTable(Func<TestCaseElement[]> accessor)
         {
-            var builder = new StringBuilder();
             var cases = accessor.Invoke();
+            var builder = new StringBuilder();
 
             if (cases.Any(x => x.Reason != null || x.Failure != null))
             {
