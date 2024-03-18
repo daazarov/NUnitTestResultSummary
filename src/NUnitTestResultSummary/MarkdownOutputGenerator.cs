@@ -61,15 +61,15 @@ namespace NUnitTestResultSummary
             {
                 if (item.Reason != null)
                 {
-                    builder.MarkdownTableRow(item.MethodName, GenerateResultIndicator(item.Result), builder.MarkdownInnerCollapsedSection("Details", Regex.Replace(item.Reason.Message.Value, @"\t|\n|\r", "")));
+                    builder.MarkdownTableRow(item.MethodName.MarkdownCodeBlock(), GenerateResultIndicator(item.Result), builder.MarkdownInnerCollapsedSection("Details", Regex.Replace(item.Reason.Message.Value, @"\t|\n|\r", "")));
                 }
                 else if (item.Failure != null)
                 {
-                    builder.MarkdownTableRow(item.MethodName, GenerateResultIndicator(item.Result), builder.MarkdownInnerCollapsedSection("Details", Regex.Replace(item.Failure.Message.Value, @"\t|\n|\r", "")));
+                    builder.MarkdownTableRow(item.MethodName.MarkdownCodeBlock(), GenerateResultIndicator(item.Result), builder.MarkdownInnerCollapsedSection("Details", Regex.Replace(item.Failure.Message.Value, @"\t|\n|\r", "")));
                 }
                 else
                 {
-                    builder.MarkdownTableRow(item.MethodName, GenerateResultIndicator(item.Result), item.Duration.ToString());
+                    builder.MarkdownTableRow(item.MethodName.MarkdownCodeBlock(), GenerateResultIndicator(item.Result), item.Duration.ToString());
                 }
             }
 
