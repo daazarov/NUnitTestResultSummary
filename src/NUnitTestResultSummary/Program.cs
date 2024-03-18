@@ -24,6 +24,7 @@ namespace NUnitTestResultSummary
             if (!File.Exists(_options.InputFile))
             {
                 Console.WriteLine($"Current Directory: {Directory.GetCurrentDirectory()}");
+                Console.WriteLine($"Inner Directories: {string.Join(", ", Directory.EnumerateDirectories(Directory.GetCurrentDirectory()))}");
                 Console.WriteLine($"Error: Nunit File result not found - {_options.InputFile}.");
                 return -2; // error
             }
