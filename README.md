@@ -1,6 +1,6 @@
 # NUnitTestResultSummary
 
-Just a "quick" implementation without asking for good code for your own needs.
+Just a "quick" implementation without asking for good code.
 
 ## Output
 
