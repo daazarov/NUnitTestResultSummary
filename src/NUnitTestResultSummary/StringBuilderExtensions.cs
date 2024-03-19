@@ -74,13 +74,6 @@ namespace NUnitTestResultSummary
             return stringBuilder;
         }
 
-        public static string MarkdownCodeBlock(this string @this)
-        {
-            Guard(@this);
-
-            return $"```{@this}```";
-        }
-
         private static void Guard(object argument)
         {
             if (argument == null)
