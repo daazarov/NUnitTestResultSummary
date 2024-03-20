@@ -17,7 +17,7 @@ Just a "quick" implementation without asking for good code.
 >
 > Name | Result | Reason 
 > --- | --- | --- 
-> ```Your Test Name``` | Failed :red_circle: | <details><summary>Details</summary> <sub>Assert.That(hash1, Is.Not.EqualTo(hash2))<br>  Expected: not equal to "4F7F6A4AE46676D9751FDCCDF15AE1E6A200ED0DE5653E06390148928C642006"<br>  But was:  "4F7F6A4AE46676D9751FDCCDF15AE1E6A200ED0DE5653E06390148928C642006"<br></sub></details>
+> ```Hashes_Not_Equals``` | Failed :red_circle: | <details><summary>Details</summary> <sub>Assert.That(hash1, Is.Not.EqualTo(hash2))<br>  Expected: not equal to "4F7F6A4AE46676D9751FDCCDF15AE1E6A200ED0DE5653E06390148928C642006"<br>  But was:  "4F7F6A4AE46676D9751FDCCDF15AE1E6A200ED0DE5653E06390148928C642006"<br></sub></details>
 >
 > </details>
 
