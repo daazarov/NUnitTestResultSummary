@@ -17,7 +17,7 @@ Just a "quick" implementation without asking for good code.
 >
 > Name | Result | Reason 
 > --- | --- | --- 
-> ```Your Test Name``` | Failed :red_circle: | <details><summary>Details</summary> Actual: 3; Expected: 5</details>
+> ```Your Test Name``` | Failed :red_circle: | <details><summary>Details</summary> <sub>Actual: 3;<br>Expected: 5</sub></details>
 >
 > </details>
 
