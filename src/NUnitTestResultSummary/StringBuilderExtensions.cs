@@ -40,18 +40,18 @@ namespace NUnitTestResultSummary
             Guard(stringBuilder);
             Guard(columnNames);
 
-            stringBuilder.AppendLine();
+            stringBuilder.AppendLine().Append($"|");
 
             foreach (var columnName in columnNames)
             {
-                stringBuilder.Append($"{columnName} |");
+                stringBuilder.Append($" {columnName} |");
             }
 
-            stringBuilder.AppendLine();
+            stringBuilder.AppendLine().Append($"|");
 
             foreach (var columnName in columnNames)
             {
-                stringBuilder.Append("--- | ");
+                stringBuilder.Append(" --- | ");
             }
 
             stringBuilder.AppendLine();
@@ -64,9 +64,11 @@ namespace NUnitTestResultSummary
             Guard(stringBuilder);
             Guard(rows);
 
+            stringBuilder.Append($"|");
+
             foreach (var row in rows)
             {
-                stringBuilder.Append($"{row} |");
+                stringBuilder.Append($" {row} |");
             }
 
             stringBuilder.AppendLine();
@@ -82,7 +84,7 @@ namespace NUnitTestResultSummary
             }
             else if (argument is string str)
             {
-                if (string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str))
+                if (string.IsNullOrEmpty(str))
                     throw new ArgumentNullException(nameof(argument));
             }
             else if (argument is IEnumerable col)
