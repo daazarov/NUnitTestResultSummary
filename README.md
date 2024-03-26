@@ -51,8 +51,6 @@ name: .Net 6 CI Build
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
