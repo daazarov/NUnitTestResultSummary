@@ -13,7 +13,8 @@ namespace NUnitTestResultSummary
         {
             if (options.Badge)
             {
-                _markdownOutput.MarkdownBadge("Total Tests", BuildShieldsIoUrl("Total Tests", summary.TotalTestCount.ToString(), "white"))
+                _markdownOutput.AppendLine()
+                               .MarkdownBadge("Total Tests", BuildShieldsIoUrl("Total Tests", summary.TotalTestCount.ToString(), "white"))
                                .MarkdownBadge("Passed Tests", BuildShieldsIoUrl("Passed Tests", summary.PassedTestCount.ToString(), "green"))
                                .MarkdownBadge("Failed Tests", BuildShieldsIoUrl("Failed Tests", summary.FailedTestCount.ToString(), "red"))
                                .MarkdownBadge("Skipped Tests", BuildShieldsIoUrl("Skipped Tests", summary.SkippedTestCount.ToString(), "blue"))

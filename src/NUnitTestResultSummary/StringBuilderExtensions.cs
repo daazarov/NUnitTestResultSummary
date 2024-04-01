@@ -26,13 +26,15 @@ namespace NUnitTestResultSummary
             return new StringBuilder().Append(string.Format(InnerCollapsedSectionTemplate, summary, details)).ToString();
         }
 
-        public static StringBuilder MarkdownBadge(this StringBuilder stringBuilder, string linkText, string link)
+        public static StringBuilder MarkdownBadge(this StringBuilder stringBuilder, string linkText, string link, bool inline = true)
         {
             Guard(stringBuilder);
             Guard(linkText);
             Guard(link);
 
-            return stringBuilder.AppendLine($"![{linkText}]({link})");
+            return inline
+                ? stringBuilder.Append($"![{linkText}]({link}) ")
+                : stringBuilder.AppendLine($"![{linkText}]({link})");
         }
 
         public static StringBuilder MarkdownTableHeader(this StringBuilder stringBuilder, params string[] columnNames)
